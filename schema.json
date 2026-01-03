@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SampleData",
+  "type": "object",
+  "properties": {
+    "date_field": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
+    "text_field": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "number_field": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "items": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 50
+          }
+        },
+        "required": ["name"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "date_field",
+    "text_field",
+    "number_field",
+    "items"
+  ],
+  "additionalProperties": false
+}
